@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/index.css">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link rel="shortcut icon" href="/static/img/img/SuryabalaLogo.jpg" type="image/x-icon">
+    <title>Net Zero Hybrid AC-DC microgrid</title>
+</head>
+
+<body>
+    <nav class="containerNav">
+        <header class="text-gray-600 body-font">
+            <div class="container mx-auto flex flex-wrap p-2 flex-col md:flex-row items-center">
+                <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                    <a href="/">
+                        <img src="/static/img/img/SuryabalaLogo.jpg" alt="" class="headerLogo" width="45rem">
+                    </a>
+                    <a class="ml-3 text-xl font-bold">Net Zero Hybrid AC-DC microgrid</a>
+                </a>
+                <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                    <a class="mr-5 hover:text-green-300 text-green-400  cursor-pointer font-semibold"
+                        href="/">Home</a>
+                    <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold" href="/html/new_building.html">New Building</a>
+                    <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold"
+                        href="/html/dashboard.html">Building Analytics</a>
+                    <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold" href="/html/energy calculator.html">Energy
+                        Calculator</a>
+                        <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold" href="/html/Insights.html">Insights</a>
+                    </nav>
+            </div>
+        </header>
+    </nav>
+    <section class="hero">
+        <section class="dark:bg-gray-800 dark:text-gray-100">
+            <div
+                class="container mx-auto flex flex-col items-center px-4 py-16 text-center md:py-32 md:px-10 lg:px-32 xl:max-w-3xl">
+                <h1 class="text-4xl font-bold leading-none sm:text-5xl">One Product
+                    <span class="dark:text-green-400">Many</span> Solutions
+                </h1>
+                <p class="px-8 mt-8 mb-12 text-lg">" One unit energy saved equals two units energy generated . "</p>
+                <div class="flex flex-wrap justify-center">
+                    <a href="/insights">
+                        <button
+                            class="px-8 py-3 m-2 text-lg font-semibold rounded dark:bg-green-400 dark:text-gray-900">Get
+                            started</button>
+                    </a>
+                    <a href="/html/Insights.html">
+                        <button
+                            class="px-8 py-3 m-2 text-lg border rounded dark:text-gray-50 dark:border-gray-700">Learn
+                            more</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </section>
+     <!-- <section class="text-gray-600 body-font overflow-hidden">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="lg:w-4/5 mx-auto flex flex-wrap">
+            <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+              <h2 class="text-sm title-font text-gray-500 tracking-widest">BRAND NAME</h2>
+              <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">Animated Night Hill Illustrations</h1>
+              <div class="flex mb-4">
+                <a class="flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1">Description</a>
+                <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Reviews</a>
+                <a class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1">Details</a>
+              </div>
+              <p class="leading-relaxed mb-4">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam inxigo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean.</p>
+              <div class="flex border-t border-gray-200 py-2">
+                <span class="text-gray-500">Color</span>
+                <span class="ml-auto text-gray-900">Blue</span>
+              </div>
+              <div class="flex border-t border-gray-200 py-2">
+                <span class="text-gray-500">Size</span>
+                <span class="ml-auto text-gray-900">Medium</span>
+              </div>
+              <div class="flex border-t border-b mb-6 border-gray-200 py-2">
+                <span class="text-gray-500">Quantity</span>
+                <span class="ml-auto text-gray-900">4</span>
+              </div>
+              <div class="flex">
+                <span class="title-font font-medium text-2xl text-gray-900">$58.00</span>
+                <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
+                <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                  <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://dummyimage.com/400x400">
+          </div>
+        </div>
+      </section> --> 
+
+    <section id="problem">
+        <h1 class="problemHeader">PROBLEM</h1>
+        <section class="text-gray-600 body-font">
+            <section class="dark:bg-gray-800 dark:text-gray-100">
+                <div class="container max-w-5xl px-4 py-12 mx-auto">
+                    <div class="grid gap-4 mx-4 sm:grid-cols-12">
+                        <div class="col-span-12 sm:col-span-3">
+                            <div
+                                class="text-center sm:text-left mb-14 before:block before:w-24 before:h-3 before:mb-5 before:rounded-md before:mx-auto sm:before:mx-0 before:dark:bg-green-400">
+                                <h3 class="text-3xl font-semibold">ENERGY CONSERVATION WITH MODERN TECHNOLOGY</h3>
+                                <span class="text-sm font-bold tracking-wider uppercase dark:text-gray-400">Source:
+                                    Beuro of Energy Efficiency(BEE).</span>
+                            </div>
+                        </div>
+                        <div class="relative col-span-12 px-4 space-y-6 sm:col-span-9">
+                            <div
+                                class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:dark:bg-gray-700">
+                                <div
+                                    class="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:dark:bg-green-400">
+                                    <h3 class="text-xl font-semibold tracking-wide">Background</h3>
+                                    <!-- <time class="text-xs tracking-wide uppercase dark:text-gray-400">Dec 2020</time> -->
+                                    <p class="mt-3">The world's natural resources are already depleting, and people are
+                                        starting to feel the repercussions of a wasteful lifestyle. As such, energy
+                                        conservation is vital in today's world. Not only does it help households save
+                                        money, but it also encourages consumers to be more conscious about preserving
+                                        natural resources. IoT has made homes smarter, so its application in energy
+                                        conservation is more accessible. Smart appliances can inform homeowners of
+                                        real-time consumption so that they can monitor their energy usage. Reports can
+                                        easily be generated or extracted, allowing homeowners to monitor their daily,
+                                        weekly, and monthly energy consumption accurately. In addition, sensors can be
+                                        installed so that when owners leave the house, appliances will automatically
+                                        turn off to conserve energy.</p>
+                                </div>
+                                <div
+                                    class="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:dark:bg-green-400">
+                                    <h3 class="text-xl font-semibold tracking-wide">Summary</h3>
+                                    <!-- <time class="text-xs tracking-wide uppercase dark:text-gray-400">Jul 2019</time> -->
+                                    <p class="mt-3">In order to conserve energy we need to keep a check on all the type
+                                        of resources that are being used in our day to day life. With IoT it becomes
+                                        easy to track the resources we are using and we can monitor and keep a check on.
+                                        Reports generated from such monitoring system can help in conserving natural
+                                        resources and reduce unnecessary wastage if any.
+                                    </p>
+                                </div>
+                                <div
+                                    class="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:dark:bg-green-400">
+                                    <h3 class="text-xl font-semibold tracking-wide">Objective</h3>
+                                    <p class="mt-3">We would like you to develop a mobile/web app system using IoT to
+                                        make energy conservation easy. Also provide reports on usage of all the
+                                        resources in day to day life and smart automation methods to reduce the amounts
+                                        of any resource we use.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- section -->
+            <div class="dark:bg-gray-800 dark:text-gray-100 py-8">
+                <div class="container max-w-4xl px-10 py-8 mx-auto rounded-lg shadow-sm dark:bg-gray-900">
+                    <div class="flex items-center justify-between">
+                        <a rel="noopener noreferrer" href="#"
+                            class="px-2 py-1 font-bold rounded dark:bg-green-400 dark:text-gray-900">SOLUTION</a>
+
+                    </div>
+                    <div class="mt-3">
+                        <!-- <a rel="noopener noreferrer" href="#" class="text-2xl font-bold hover:underline">Nos creasse
+                            pendere crescit angelos etc</a> -->
+                        <p class="mt-2">The prediction of building energy use is basically promoted as a tool for energy
+                            conservation and enhanced decision-making in order to reduce energy consumption.
+                            First, the innovative aspect of this work is the construction of a model that allows
+                            designers to enter critical aspects of a building design and anticipate yearly average
+                            energy usage during the early stage of construction of residential building.
+                            Second, an IOT-based energy conservation system for an existing house is presented, with the
+                            purpose of developing a system that may be utilized to conserve excess unnecessary energy by
+                            gathering data from sensors.
+                            An app will display real-time usage of electrical components such as lights, air
+                            conditioners, and fans and will control their use to maximize the percentage of
+                            sustainability and energy efficiency.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class="photos1">
+        <div class="relative flex items-center justify-center w-full dark:text-gray-50">
+            <button aria-label="Slide back" type="button"
+                class="absolute left-0 z-30 p-2 ml-10 focus:outline-none focus:dark:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400">
+                <svg width="8" height="14" fill="none" viewBox="0 0 8 14" xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4">
+                    <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+            </button>
+            <div style="background-color:rgba(38, 65, 184, 0.5) ;" class="flex items-center justify-start w-full h-full gap-6 py-4 mx-auto overflow-auto lg:gap-8">
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 w-full dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide1.JPG" alt="Image 1">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96  dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide2.JPG" alt="Image 2">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide3.JPG" alt="Image 3">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 w-full dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide4.JPG" alt="Image 4">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide5.JPG" alt="Image 5">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide6.JPG" alt="Image 5">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide7.JPG" alt="Image 5">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide8.JPG" alt="Image 5">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide9.JPG" alt="Image 5">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide10.JPG" alt="Image 5">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide11.JPG" alt="Image 5">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide12.JPG" alt="Image 5">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide13.JPG" alt="Image 5">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide14.JPG" alt="Image 5">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide15.JPG" alt="Image 5">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide16.JPG" alt="Image 5">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide17.JPG" alt="Image 5">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide18.JPG" alt="Image 5">
+                </div>
+                <div class="relative flex flex-shrink-0 w-full sm:w-auto">
+                    <img class="object-cover object-center h-96 dark:bg-gray-500"
+                        src="../static/img/SIH Power Consumption/Slide19.JPG" alt="Image 5">
+                </div>
+            </div>
+            <button aria-label="Slide forward" id="next"
+                class="absolute right-0 z-30 p-2 mr-10 focus:outline-none focus:dark:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400">
+                <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4">
+                    <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                </svg>
+            </button>
+        </div>
+    </section>
+    </section>
+    <footer className="rootFooter">
+        <footer class="px-4 py-3 dark:bg-gray-800 dark:text-gray-400">
+            <div
+                class="container flex flex-wrap items-center justify-center mx-auto space-y-4 sm:justify-between sm:space-y-0">
+                <div class="flex flex-row pr-3 space-x-4 sm:space-x-8">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-full dark:bg-green-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"
+                            class="w-5 h-5 rounded-full dark:text-gray-900">
+                            <path
+                                d="M18.266 26.068l7.839-7.854 4.469 4.479c1.859 1.859 1.859 4.875 0 6.734l-1.104 1.104c-1.859 1.865-4.875 1.865-6.734 0zM30.563 2.531l-1.109-1.104c-1.859-1.859-4.875-1.859-6.734 0l-6.719 6.734-6.734-6.734c-1.859-1.859-4.875-1.859-6.734 0l-1.104 1.104c-1.859 1.859-1.859 4.875 0 6.734l6.734 6.734-6.734 6.734c-1.859 1.859-1.859 4.875 0 6.734l1.104 1.104c1.859 1.859 4.875 1.859 6.734 0l21.307-21.307c1.859-1.859 1.859-4.875 0-6.734z">
+                            </path>
+                        </svg>
+                    </div>
+                    <ul class="flex flex-wrap items-center space-x-4 sm:space-x-8">
+                        <li>
+                            <a rel="noopener noreferrer" href="#">Terms of use</a>
+                        </li>
+                        <li>
+                            <a rel="noopener noreferrer" href="#">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="flex flex-wrap pl-3 space-x-4 sm:space-x-8">
+                    <li>
+                        <a rel="noopener noreferrer" href="#">Instagram</a>
+                    </li>
+                    <li>
+                        <a rel="noopener noreferrer" href="#">Facebook</a>
+                    </li>
+                    <li>
+                        <a rel="noopener noreferrer" href="#">Twitter</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </footer>
+
+</body>
+
+</html>
