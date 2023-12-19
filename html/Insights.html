@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Net Zero Hybrid AC-DC microgrid-insights</title>
+    <!-- <link rel="stylesheet" href="../static/style.css"> -->
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/styles/index.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        center i {
+            color: blue;
+            font-weight: 600;
+            font-size: 26px;
+            margin-top: 1rem;
+        }
+
+        .wrapper {
+            background-color: none;
+            display: flex;
+            padding: 0.2rem 0;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wrapper-icon {
+            height: 70px;
+            width: 70px;
+            background-color: azure;
+            margin-right: 1rem;
+            display: grid;
+            place-items: center;
+            border-radius: 5px;
+        }
+
+        .wrapper-icon img {
+            height: 60px;
+            width: 60px;
+        }
+
+        .wrapper-controller {
+            display: flex;
+            height: 80px;
+            width: 70%;
+            background-color: azure;
+            padding: 6px 0 6px 10px;
+            border-radius: 5px;
+        }
+
+        .wrapper-performance {
+            display: flex;
+            padding: 8px;
+            background-color: azure;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wrapper-performance span {
+            padding: 0 10px;
+            font-weight: 600;
+            background-color: azure;
+        }
+
+        .wrapper-performance input {
+            cursor: pointer;
+        }
+
+        .wrapper-controller button {
+            border-radius: 8px;
+            /* padding: 0 5px; */
+            border: none;
+            margin: 0.2rem 0.3rem;
+            color: #000;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: 1px solid grey;
+            width: 100%;
+        }
+
+        .savings-btn {
+            /* height: 80px; */
+            display: flex;
+        }
+
+        .savings-btn a button {
+            border-radius: 8px !important;
+            padding: 4px 40px;
+            color: #fff;
+            font-weight: 600;
+            background-color: #43a047;
+            border: none;
+            cursor: pointer;
+        }
+
+        .wrapper-controller button.active {
+            background: #afb42b;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="containerNav">
+        <header class="text-gray-600 body-font">
+            <div class="container mx-auto flex flex-wrap p-2 flex-col md:flex-row items-center">
+                <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                    <a href="/">
+                        <img src="/static/img/img/SuryabalaLogo.jpg" alt="" class="headerLogo" width="45rem">
+                    </a>
+                    <a class="ml-3 text-xl font-bold">Net Zero Hybrid AC-DC microgrid</a>
+                </a>
+                <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                    <a class="mr-5 hover:text-green-300 text-green-400  cursor-pointer font-semibold"
+                        href="/">Home</a>
+                    <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold" href="/html/new_building.html">New Building</a>
+                    <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold"
+                        href="/html/dashboard.html">Building Analytics</a>
+                    <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold" href="/html/energy calculator.html">Energy
+                        Calculator</a>
+                        <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold" href="/html/Insights.html">Insights</a>
+                    </nav>
+            </div>
+        </header>
+    </nav>
+    <center style="padding:1rem 0;"><i style="color:grey">Hybrid AC-DC microgrid with Load factor Controller</i>
+    </center>
+    <div id="controller-btn"></div>
+    <div class="wrapper">
+        <div class="wrapper-icon">
+            <img src="/static/img/washing-machine.jpg" alt="washing-machine" height="50px">
+        </div>
+        <div class="wrapper-controller">
+            <div class="wrapper-performance">
+                <span>Reduced <br> Cost</span>
+                <input type="range" id="vol1" name="vol" min="0" max="100"
+                    onchange="handleSliderChange(this.id, 'washing-machine', 'low-price1', 'more-renew1')">
+                <span>Increased <br> Performance</span>
+                <input id="date1" class="bg-gray-400 text-gray-100 outline-none h-10 px-2 rounded" type="datetime-local"
+                    onchange="handleDate(this.id,'washing-machine')">
+            </div>
+            <button id="low-price1" onclick="toggleLowFunc(this.id, 'more-renew1', 'vol1', 'washing-machine')"
+                class="active">Use
+                Low <br /> Price
+                Periods</button>
+            <button id="more-renew1" onclick="toggleMoreFunc('low-price1', this.id, 'vol1', 'washing-machine')">Use
+                More <br />
+                Renewable
+                Energy</button>
+        </div>
+        <div class="savings-btn">
+            <a href="/dashboard?machine=washingMachine"><button
+                    onclick="savingsDisplayFunction(this.id, 'washing-machine')" id="savings1">Savings <br>
+                    Display</button></a>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="wrapper-icon">
+            <img src="/static/img/dish-washer.jpg" alt="dish-washer">
+        </div>
+        <div class="wrapper-controller">
+            <div class="wrapper-performance">
+                <span>Reduced <br> Cost</span>
+                <input type="range" id="vol2" name="vol" min="0" max="100"
+                    onchange="handleSliderChange(this.id, 'dish-washer', 'low-price2', 'more-renew2')">
+                <span>Increased <br> Performance</span>
+                <input id="date2" class="bg-gray-400 text-gray-100 outline-none h-10 px-2 rounded" type="datetime-local"
+                    onchange="handleDate(this.id,'dish-washer')">
+            </div>
+            <button id="low-price2" onclick="toggleLowFunc(this.id,  'more-renew2', 'vol2','dish-washer')"
+                class="active">Use Low <br />
+                Price
+                Periods</button>
+            <button id="more-renew2" onclick="toggleMoreFunc('low-price2', this.id, 'vol2', 'dish-washer')">Use More
+                <br />
+                Renewable
+                Energy</button>
+        </div>
+        <div class="savings-btn">
+            <a href="/dashboard?machine=dishWasher"><button onclick="savingsDisplayFunction(this.id, 'dish-washer')"
+                    id="savings2">Savings <br> Display</button></a>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="wrapper-icon">
+            <img src="/static/img/water-pump.jpg" alt="water-pump">
+        </div>
+        <div class="wrapper-controller">
+            <div class="wrapper-performance">
+                <span>Reduced <br> Cost</span>
+                <input type="range" id="vol3" name="vol" min="0" max="100"
+                    onchange="handleSliderChange(this.id, 'water-pump', 'low-price3', 'more-renew3')">
+                <span>Increased <br> Performance</span>
+                <input id="date3" class="bg-gray-400 text-gray-100 outline-none h-10 px-2 rounded" type="datetime-local"
+                    onchange="handleDate(this.id,'water-pump')">
+            </div>
+            <button id="low-price3" onclick="toggleLowFunc(this.id, 'more-renew3', 'vol3', 'water-pump')"
+                class="active">Use Low <br />
+                Price
+                Periods</button>
+            <button id="more-renew3" onclick="toggleMoreFunc('low-price3', this.id, 'vol3', 'water-pump')">Use More
+                <br />
+                Renewable
+                Energy</button>
+        </div>
+        <div class="savings-btn">
+            <a href="/dashboard?machine=waterPump"><button onclick="savingsDisplayFunction(this.id, 'water-pump')"
+                    id="savings3">Savings <br> Display</button></a>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="wrapper-icon">
+            <img src="/static/img/e-drive-charger.jpg" alt="e-drive-charger">
+        </div>
+        <div class="wrapper-controller">
+            <div class="wrapper-performance">
+                <span>Reduced <br> Cost</span>
+                <input type="range" id="vol4" name="vol" min="0" max="100"
+                    onchange="handleSliderChange(this.id, 'e-drive-charger', 'low-price4', 'more-renew4')">
+                <span>Increased <br> Performance</span>
+                <input id="date4" class="bg-gray-400 text-gray-100 outline-none h-10 px-2 rounded" type="datetime-local"
+                    onchange="handleDate(this.id,'e-drive-charger')">
+            </div>
+            <button id="low-price4" onclick="toggleLowFunc(this.id, 'more-renew4', 'vol4', 'e-drive-charger')"
+                class="active">Use Low <br />
+                Price
+                Periods</button>
+            <button id="more-renew4" onclick="toggleMoreFunc('low-price4', this.id, 'vol4', 'e-drive-charger')">Use
+                More
+                <br />
+                Renewable
+                Energy</button>
+        </div>
+        <div class="savings-btn">
+            <a href="/dashboard?machine=eDriveCharger">
+                <button onclick="savingsDisplayFunction(this.id, 'e-drive-charger')" id="savings4">Savings <br>
+                    Display</button>
+            </a>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="wrapper-icon">
+            <img src="/static/img/switch.jpg" alt="">
+        </div>
+        <div class="wrapper-controller">
+            <div class="wrapper-performance">
+                <span>Reduced <br> Cost</span>
+                <input type="range" id="vol5" name="vol" min="0" max="100"
+                    onchange="handleSliderChange(this.id, 'switch', 'low-price5', 'more-renew5')">
+                <span>Increased <br> Performance</span>
+                <input id="date5" class="bg-gray-400 text-gray-100 outline-none h-10 px-2 rounded" type="datetime-local"
+                    onchange="handleDate(this.id,'switch')">
+            </div>
+            <button id="low-price5" onclick="toggleLowFunc(this.id,'more-renew5', 'vol5', 'switch')" class="active">Use
+                Low
+                <br /> Price
+                Periods</button>
+            <button id="more-renew5" onclick="toggleMoreFunc('low-price5',this.id, 'vol5', 'switch')">Use More <br />
+                Renewable
+                Energy</button>
+        </div>
+        <div class="savings-btn">
+            <a href="/dashboard?machine=switch">
+                <button onclick="savingsDisplayFunction(this.id)" id="savings5">Savings <br> Display</button>
+            </a>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="wrapper-icon">
+            <img src="/static/img/table-lamp.jpg" alt="table-lamp">
+        </div>
+        <div class="wrapper-controller">
+            <div class="wrapper-performance">
+                <span>Reduced <br> Cost</span>
+                <input type="range" id="vol6" name="vol" min="0" max="100"
+                    onchange="handleSliderChange(this.id, 'table-lamp', 'low-price6', 'more-renew6')">
+                <span>Increased <br> Performance</span>
+                <input id="date6" class="bg-gray-400 text-gray-100 outline-none h-10 px-2 rounded" type="datetime-local"
+                    onchange="handleDate(this.id,'table-lamp')">
+            </div>
+            <button id="low-price6" onclick="toggleLowFunc(this.id, 'more-renew6', 'vol6', 'table-lamp')"
+                class="active">Use
+                Low <br />
+                Price
+                Periods</button>
+            <button id="more-renew6" onclick="toggleMoreFunc('low-price6', this.id, 'vol6', 'table-lamp')">Use More
+                <br />
+                Renewable
+                Energy</button>
+        </div>
+        <div class="savings-btn">
+            <a href="/dashboard?machine=switch">
+                <button onclick="savingsDisplayFunction(this.id, 'table-lamp')" id="savings6">Savings
+                    <br>
+                    Display</button>
+            </a>
+        </div>
+    </div>
+    <section id="table-lamp">
+
+    </section>
+
+<script>
+    function toggleLowFunc(btnId1, btnId2, sliderId, machineType) {
+        var btn1 = document.getElementById(btnId1)
+        var btn2 = document.getElementById(btnId2)
+        var slider = document.getElementById(sliderId)
+        btn1.classList.toggle("active")
+        handleSliderBtnChange(btn1, btn2, slider)
+        // Next is Yours
+    }
+    function toggleMoreFunc(btnId1, btnId2, sliderId, machineType) {
+        var btn1 = document.getElementById(btnId1)
+        var btn2 = document.getElementById(btnId2)
+        var slider = document.getElementById(sliderId)
+        btn2.classList.toggle("active")
+        handleSliderBtnChange(btn1, btn2, slider)
+        // Next is Yours
+    }
+    function savingsDisplayFunction(btnId) {
+        // alert(btnId)
+    }
+    function handleSliderChange(sliderId, machineType, lowBtnId, moreBtnId) {
+        var sliderValue = document.getElementById(sliderId).value
+        var lowBtn = document.getElementById(lowBtnId)
+        var moreBtn = document.getElementById(moreBtnId)
+        if (sliderValue === "0") {
+            lowBtn.classList.add("active")
+            moreBtn.classList.add("active")
+        } else if (sliderValue <= "50" && sliderValue >= "40") {
+            lowBtn.classList.remove("active")
+            moreBtn.classList.add("active")
+        } else if (sliderValue >= 60) {
+            lowBtn.classList.remove("active")
+            moreBtn.classList.remove("active")
+        }
+        // Next is Yours
+    }
+
+    function handleDate(inputId, machineType) {
+        var dateValue = document.getElementById(inputId).value
+    }
+    function handleSliderBtnChange(lowBtn, moreBtn, slider) {
+        var lowClassListValue = lowBtn.classList.length
+        var moreClassListValue = moreBtn.classList.length
+        if (lowClassListValue === 0 && moreClassListValue === 0) {
+            slider.value = "70"
+        } else if (lowClassListValue === 1 && moreClassListValue === 1) {
+            slider.value = "0"
+        } else if (moreClassListValue === 1) {
+            slider.value = "50"
+        }
+        // Next is Yours
+    }
+</script>
+
+<footer class="padding-top:1000px px-4 py-8 dark:bg-gray-800 dark:text-gray-400">
+    <div
+        class="container flex flex-wrap items-center justify-center mx-auto space-y-4 sm:justify-between sm:space-y-0">
+        <div class="flex flex-row pr-3 space-x-4 sm:space-x-8">
+            <div
+                class="flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-full dark:bg-green-400">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"
+                    class="w-5 h-5 rounded-full dark:text-gray-900">
+                    <path
+                        d="M18.266 26.068l7.839-7.854 4.469 4.479c1.859 1.859 1.859 4.875 0 6.734l-1.104 1.104c-1.859 1.865-4.875 1.865-6.734 0zM30.563 2.531l-1.109-1.104c-1.859-1.859-4.875-1.859-6.734 0l-6.719 6.734-6.734-6.734c-1.859-1.859-4.875-1.859-6.734 0l-1.104 1.104c-1.859 1.859-1.859 4.875 0 6.734l6.734 6.734-6.734 6.734c-1.859 1.859-1.859 4.875 0 6.734l1.104 1.104c1.859 1.859 4.875 1.859 6.734 0l21.307-21.307c1.859-1.859 1.859-4.875 0-6.734z">
+                    </path>
+                </svg>
+            </div>
+            <ul class="flex flex-wrap items-center space-x-4 sm:space-x-8">
+                <li>
+                    <a rel="noopener noreferrer" href="#">Terms of use</a>
+                </li>
+                <li>
+                    <a rel="noopener noreferrer" href="#">Privacy</a>
+                </li>
+            </ul>
+        </div>
+        <ul class="flex flex-wrap pl-3 space-x-4 sm:space-x-8">
+            <li>
+                <a rel="noopener noreferrer" href="#">Instagram</a>
+            </li>
+            <li>
+                <a rel="noopener noreferrer" href="#">Facebook</a>
+            </li>
+            <li>
+                <a rel="noopener noreferrer" href="#">Twitter</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+</footer>
+</body>
+</html>

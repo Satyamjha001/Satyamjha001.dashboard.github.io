@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Net Zero Hybrid AC-DC microgrid</title>
+
+    <!-- <script src="showChart.js"></script> -->
+<!-- <link rel="stylesheet" href="style.css"> -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="shortcut icon" href="../static/img/img/SuryabalaLogo.jpg" type="image/x-icon">
+<script src="../script/script.js"></script>
+<script src="../script/Chart.js"></script>
+<!-- <script src="Chart.js"></script> -->
+<link rel= "stylesheet" type= "text/css" href= "/styles/style.css">
+<link rel="stylesheet" type="text/css" href="/styles/root.css">
+<link rel="shortcut icon" href="/static/img/img/SuryabalaLogo.jpg" type="image/x-icon">
+<link rel= "stylesheet" type= "text/css" href= "/styles/index.css">
+<!-- <style>
+  .containerNav{
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+} -->
+</style>
+</head>
+<body >
+  <nav class="containerNav">
+    <header class="text-gray-600 body-font">
+        <div class="container mx-auto flex flex-wrap p-2 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <a href="/">
+                    <img src="/static/img/img/SuryabalaLogo.jpg" alt="" class="headerLogo" width="45rem">
+                </a>
+                <a class="ml-3 text-xl font-bold">Net Zero Hybrid AC-DC microgrid</a>
+            </a>
+            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                <a class="mr-5 hover:text-green-300 text-green-400  cursor-pointer font-semibold"
+                    href="/">Home</a>
+                <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold" href="/html/new_building.html">New Building</a>
+                <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold"
+                    href="/html/dashboard.html">Building Analytics</a>
+                <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold" href="/html/energy calculator.html">Energy
+                    Calculator</a>
+                    <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold" href="/html/Insights.html">Insights</a>
+                </nav>
+        </div>
+    </header>
+</nav>
+    
+
+    <h2 style="margin-top: 1rem;
+    text-align: center;
+    font-size: 4rem;">
+        Energy Calculator
+    </h2>
+
+<div style="margin-top:2rem;">
+    <center>
+  
+    <label for="elcCost">Rate of electricity in your area (per unit onpeak hour)</label>
+    <input type="number" name="" value="5" id="elRate">
+    <label for="elcCost">Rate of electricity in your area (per unit off peak hour)</label>
+    <input type="number" name="" value="3.2" id="elRate1">
+    <br>
+    <br>
+</center>
+    <table cellpadding="5px" class="rwd-table">
+        <tr>
+            <th>Name of appliance</th>
+            <th>No. of appliance BEING USED</th>  
+            <th>Star-Rating</th> 
+            <th>No. of hours it is used per day</th>       
+            <th>Total Power used in a one day (output only) (in kilowatt)</th>
+            <th>Total power consumed in Month (output only) (in kilowatt)</th>
+            <th>Money spent </th>
+        </tr>
+        <tr>
+            <td>A/c</td>
+            <td> <input type="number" name="" value="1" id="ac"></td>
+            <td><select name="" id="ac_star">
+                <option value="1489">1-star</option>
+                <option value="1250">2-star</option>
+                <option value="1092">3-star</option>
+                <option value="987">4-star</option>
+                <option value="884">5-star</option>
+            </select></td>
+            <td> <input type="number" name="" value="1" id="acHour"></td>
+            <td id="acday"></td>
+            <td id="acMonth"></td>
+            <td id="acmnSpnt"></td>
+        
+        </tr>
+        <tr>
+            <td> Tv </td>
+            <td> <input type="number" name="" value="1" id="tv"></td>
+            <td><select name="" id="tv_star">
+                <option value="50">24-INCH</option>
+                <option value="70">32-INCH</option>
+                <option value="80">37-INCH</option>
+                <option value="120">42-INCH</option>
+                <option value="150">150-INCH</option></select></td>
+            <td> <input type="number" name="" value="4" id="tvHour"></td>
+            <td id="tvday"></td>
+            <td id="tvMonth"></td>
+            <td id="tvmnSpnt"></td>
+
+        </tr>
+        <tr>
+            <td> Fridge </td>
+            <td> <input type="number" name="" value="1" id="fridge"></td>
+            <td><select name="" id="fridge_star">
+                <option value="350">1-star</option>
+                <option value="300">2-star</option>
+                <option value="200">3-star</option>
+                <option value="150">4-star</option>
+                <option value="100">5-star</option></select></td>
+            <td> <input type="number" name="" value="24" id="fridgeHour"></td>
+            <td id="fridgeday"></td>
+            <td id="fridgeMonth"></td>
+            <td id="fridgemnSpnt"></td>
+        </tr>
+        <tr>
+            <td> Washing Machine </td>
+            <td> <input type="number" name="" value="1" id="wm"></td>
+            <td><select name="" id="wm_star">
+                <option value="350">1-star</option>
+                <option value="200">2-star</option>
+                <option value="150">3-star</option>
+                <option value="105">4-star</option>
+                <option value="90">5-star</option></select></td>
+            <td> <input type="number" name="" id="wmHour" value="2"></td>
+            <td id="wmday"></td>
+            <td id="wmMonth"></td>
+            <td id="wmmnSpnt"></td>
+        </tr>
+        <tr>
+            <td> Geyser </td>
+            <td> <input type="number" name="" id="geyser" value="1"></td>
+            <td><select name="" id="geyser_star">
+                <option value="1000">6-Liter</option>
+                <option value="1500">10-Liter</option>
+                <option value="2160">20-Liter</option>
+                </select></td>
+            <td> <input type="number" name="" id="geyserHour" value="0.5"></td>
+            <td id="geyserday"></td>
+            <td id="geyserMonth"></td>
+            <td id="geysermnSpnt"></td>
+        </tr>
+        <tr style="display:none;">
+            <td> Microwave </td>
+            <td> <input type="number" name="" id="micro" value="0"></td>
+            <td><select name="" id="micro_star">
+                <option value="800">20 liter</option>
+                <option value="1150">23 liter</option>
+                <option value="2900 ">28 liter</option>
+                </select></td>
+            <td> <input type="number" name="" id="microHour" value="0"></td>
+            <td id="microday"></td>
+            <td id="microMonth"></td>
+            <td id="micromnSpnt"></td>
+        </tr>
+        <tr>
+            <td> Computer </td>
+            <td> <input type="number" name="" value="1" id="comp"></td>
+            <td><select name="" id="comp_star">
+                <option value="200">Very Old</option>
+                <option value="150">Old</option>
+                <option value="120">Intermidiate</option>
+                <option value="70">New</option>
+                <option value="50">Latest </option></select></td>
+            <td> <input type="number" name="" id="compHour" value="4"></td>
+            <td id="compday"></td>
+            <td id="compMonth"></td>
+            <td id="compmnSpnt"></td>
+        </tr>
+        <tr>
+            <td> LED Bulb</td>
+            <td> <input type="number" name="" id="blb" value="4"></td>
+            <td><select name="" id="blb_star">
+                <option value="100">100W</option>
+                <option value="50">50W</option>
+                <option value="20">20W</option>
+                <option value="15">15W</option>
+                <option value="9">>10W</option></select></td>
+            <td> <input type="number" name="" id="blbHour" value="10"></td>
+            <td id="blbday"></td>
+            <td id="blbMonth"></td>
+            <td id="blbmnSpnt"></td>
+        </tr>
+        <tr>
+            <td> Fans </td>
+            <td> <input type="number" name="" id="fans" value="2"></td>
+            <td><select name="" id="fans_star">
+                <option value="16">SPEED-1</option>
+                <option value="27">SPEED-2</option>
+                <option value="45">SPEED-3</option>
+                <option value="55">SPEED-4</option>
+                <option value="75">SPEED-5</option></select></td>
+            <td> <input type="number" name="" id="fansHour" value="10"></td>
+            <td id="fanday"></td>
+            <td id="fanMonth"></td>
+            <td id="fanmnSpnt"></td>
+        </tr>
+        <tr>
+            <td>Induction Stove</td>
+            <td> <input type="number" name="" id="ic" value="1"></td>
+            <td><select name="" id="ic_star">
+                <option value="2000">2000W</option>
+                <option value="1500">1500W</option>
+                <option value="1200">1200W</option>
+                <option value="1000">1000W</option>
+                <option value="900">900W</option></select></td>
+            <td> <input type="number" name="" id="icHour" value="2"></td>
+            <td id="icday"></td>
+            <td id="icMonth"></td>
+            <td id="icmnSpnt"></td>
+        </tr>
+        <tr>
+            <td>LED TubeLight</td>
+            <td> <input type="number" name="" id="tube" value="2"></td>
+            <td><select name="" id="tube_star">
+                
+                <option value="40">3-star</option>
+                <option value="38">4-star</option>
+                <option value="36">5-star</option></select></td>
+            <td> <input type="number" name="" id="tubeHour" value="4"></td>
+            <td id="tubeday"></td>
+            <td id="tubeMonth"></td>
+            <td id="tubemnSpnt"></td>
+
+        </tr>
+    </table>
+    <datalist id="yesorno"> 
+        <option value="Yes"></option>
+        <option value="No"></option>
+    </datalist> 
+    <br>
+<div class="but"><button class="font-semibold rounded dark:bg-gray-800 dark:text-gray-100 p-2 ml-8" onclick="Calculate()" id="btn">Calculate</button></div> <div id="scr"> Scroll down for more results</div>
+<br>
+<br>
+<div class="suggstandrslt">
+<p id="ttlpwr"></p>
+<p id="emCost"></p>
+<p id="sgst"></p>
+</div>
+
+
+<div class="chart">
+    <canvas id="chart" style="width: 50; height: 50px;"></canvas>
+</div>
+</div>
+
+<form action="/generacion" method="POST">
+    <div style="display:none;">
+    <div class="form-group">
+      <label>System Capacity:</label>
+      <input
+        type="number"
+        min="0.05"
+        max="500000"
+        step="any"
+        class="form-control"
+        id="system_capacity"
+        name="system_capacity"
+        placeholder="Input kW"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Module Type:</label>
+      <div class="custom-select">
+        <select name="module_type" id="module_type">
+          <option value="0">Standard</option>
+          <option value="1">Premium</option>
+          <option value="2">Thin film</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>System losses</label>
+      <input
+        type="number"
+        min="-5"
+        max="99"
+        step="any"
+        class="form-control"
+        id="losses"
+        name="losses"
+        value="14.08"
+        placeholder = "Default 14.08"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Array type:</label>
+      <div class="custom-select">
+        <select name="array_type" id="array_type">
+          <option value="0">Fixed - Open Rack</option>
+          <option value="1">Fixed - Roof Mounted</option>
+          <option value="2">1-Axis</option>
+          <option value="3">1-Axis Backtracking</option>
+          <option value="4">2-Axis</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Tilt angle</label>
+      <input
+        type="number"
+        min="0"
+        max="90"
+        step="any"
+        class="form-control"
+        id="tilt"
+        name="tilt"
+        value="28"
+        placeholder="Range: 0-90"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Azimuth angle</label>
+      <input
+        type="number"
+        min="0"
+        max="359"
+        step="any"
+        class="form-control"
+        id="azimuth"
+        name="azimuth"
+        value="180"
+        placeholder="Range: 0-359, South:180"
+        required
+      />
+    </div>
+
+    <div class="form-group hide">
+      <label>DC to AC ratio:</label>
+      <input
+        type="number"
+        min="0"
+        step="any"
+        class="form-control"
+        id="dc_ac_ratio"
+        name="dc_ac_ratio"
+        value="1.2"
+        placeholder="Enter DC to AC ratio"
+        required
+      />
+      <br /><label>(default = 1.2, must be positive)</label>
+    </div>
+
+    <div class="form-group hide">
+      <label>Ground coverage ratio:</label>
+      <input
+        type="number"
+        min="0"
+        max="3"
+        step="any"
+        class="form-control"
+        id="gcr"
+        name="gcr"
+        value="0.4"
+        placeholder="Enter Ground coverage ratio"
+        required
+      />
+      <br /><label>(Default = 0.4, Range: 0 - 3)</label>
+    </div>
+
+    <div class="form-group hide">
+      <label>Inverter efficiency at rated power:</label>
+      <input
+        type="number"
+        min="90"
+        max="99.5"
+        step="any"
+        class="form-control"
+        id="inv_eff"
+        name="inv_eff"
+        value="96"
+        placeholder="Enter Inverter efficiency "
+        required
+      />
+      <br /><label>(Default = 96, Range: 90 - 99.5)</label>
+    </div>
+
+    <div class="form-group">
+      <label>Latitude: </label>
+      <input
+        type="number"
+        min="-90"
+        max="90"
+        step="any"
+        class="form-control"
+        id="lat"
+        name="lat"
+        placeholder="Enter Latitude"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Longitude: </label>
+      <input
+        type="number"
+        min="-180"
+        max="180"
+        step="any"
+        class="form-control"
+        id="lon"
+        name="lon"
+        placeholder="Enter Longitude"
+        required
+      />
+    </div>
+</div>
+    <button type="submit" id='sub' class="btn btn-primary">Predict Solar energy at your location</button>
+  </form>
+
+
+  <script>
+    
+///Get geolocation
+let lat_form = document.getElementById("lat");
+let lon_form = document.getElementById("lon");
+
+const getLocation = () => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition,error);
+    lat_form.placeholder = "Locating...";
+    lon_form.placeholder = "Locating...";
+  } else {
+    lat_form.placeholder = "Geolocation is not supported by this browser.";
+    lon_form.placeholder = "Geolocation is not supported by this browser.";
+  }
+}
+
+const showPosition = (position) => {
+  lat_form.value = position.coords.latitude.toFixed(4);
+  lon_form.value = position.coords.longitude.toFixed(4);
+}
+
+const error = () => {
+  lat_form.placeholder = "Geolocation disabled";
+  lon_form.placeholder = "Geolocation disabled";
+}
+
+const change1 = () => {
+  myButton = document.getElementById("system_capacity");
+  myButton.value = "600"
+  document.getElementById("800").checked=false;
+  document.getElementById("1000").checked=false;
+  console.log("done");
+}
+const change2 = () => {
+  myButton = document.getElementById("system_capacity");
+  myButton.value = "800"
+  document.getElementById("600").checked=false;
+  document.getElementById("1000").checked=false;
+  console.log("done");
+}
+const change3 = () => {
+  myButton = document.getElementById("system_capacity");
+  myButton.value = "1000"
+  document.getElementById("800").checked=false;
+  document.getElementById("600").checked=false;
+  console.log("done");
+}
+///
+window.onload = () => {
+    console.log('page is fully loaded');
+    getLocation();
+  };
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enlighten</title>
+
+  <!-- Bootstrap -->
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/styles/index.css">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <link rel="shortcut icon" href="/static/img/img/SuryabalaLogo.jpg" type="image/x-icon">
+
+  <link rel="stylesheet" type="text/css" href="/styles/dashboard.css">
+  <link rel="stylesheet" type="text/css" href="/styles/root.css">
+  <link rel="stylesheet" type="text/css" href="/styles/switch_old.css">
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <script type="text/javascript" src="/script/web_control.js"></script>
+
+
+  <link rel="shortcut icon" href="/static/img/img/logo.jpg" type="image/x-icon">
+  <script>
+    $(document).ready(function () {
+      $('#toggle-button').click(function () {
+        $.ajax({
+          url: '/toggle',
+          type: 'POST',
+          success: function (response) {
+            console.log('Turn ' + (response.is_on ? 'Off' : 'On'));
+          },
+          error: function (error) {
+            console.log(error);
+          }
+        });
+      });
+    });
+    $(document).ready(function () {
+      $('#toggle-button1').click(function () {
+        $.ajax({
+          url: '/toggle1',
+          type: 'POST',
+          success: function (response) {
+            console.log('Turn ' + (response.is_on ? 'Off' : 'On'));
+          },
+          error: function (error) {
+            console.log(error);
+          }
+        });
+      });
+    });
+    $(document).ready(function () {
+      $('#toggle-button2').click(function () {
+        $.ajax({
+          url: '/toggle2',
+          type: 'POST',
+          success: function (response) {
+            console.log('Turn ' + (response.is_on ? 'Off' : 'On'));
+          },
+          error: function (error) {
+            console.log(error);
+          }
+        });
+      });
+    });
+    $(document).ready(function () {
+      $('#toggle-button3').click(function () {
+        $.ajax({
+          url: '/toggle3',
+          type: 'POST',
+          success: function (response) {
+            console.log('Turn ' + (response.is_on ? 'Off' : 'On'));
+          },
+          error: function (error) {
+            console.log(error);
+          }
+        });
+      });
+    });
+  </script>
+
+</head>
+
+<body onload="predict_app()"  class="bg-dark">
+  <!-- <header> -->
+    <!-- <a class="logo" href="https://www.giet.edu" target="_blank"><img src="/static/img/images/logo.jpg" width="60px"
+        height="60px" alt="logo"></a> -->
+    
+
+  <!-- </header> -->
+  <nav class="containerNav bg-white">
+    <header class="text-gray-600 body-font">
+        <div class="container mx-auto flex flex-wrap p-2 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <a href="/">
+                    <img src="/static/img/img/SuryabalaLogo.jpg" alt="" class="headerLogo" width="45rem">
+                </a>
+                <a class="ml-3 text-xl font-bold">Net Zero Hybrid AC-DC microgrid</a>
+            </a>
+            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                <a class="mr-5 hover:text-green-300 text-green-400  cursor-pointer font-semibold"
+                    href="/">Home</a>
+                <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold" href="/html/new_building.html">New Building</a>
+                <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold"
+                    href="/html/dashboard.html">Building Analytics</a>
+                <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold" href="/html/energy calculator.html">Energy
+                    Calculator</a>
+                    <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold" href="/html/Insights.html">Insights</a>
+                </nav>
+        </div>
+    </header>
+</nav>
+
+
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-3">
+        <div class="card">
+          <center>
+            <h1>Load 1</h1>
+            <label class="switch">
+              <input type="checkbox" id="toggle-button">
+              <span class="slider round"></span>
+            </label>
+          </center>
+        </div>
+
+      </div>
+      <div class="col-3">
+        <div class="card">
+          <center>
+            <h1>Load 2</h1>
+            <label class="switch">
+              <input type="checkbox" id="toggle-button1">
+              <span class="slider round"></span>
+            </label>
+          </center>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="card">
+          <center>
+            <h1>Load 3</h1>
+            <label class="switch">
+              <input type="checkbox" id="toggle-button2">
+              <span class="slider round"></span>
+            </label>
+          </center>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="card">
+          <center>
+            <h1>Load 4</h1>
+            <label class="switch">
+              <input type="checkbox" id="toggle-button3">
+              <span class="slider round"></span>
+            </label>
+          </center>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body" style="
+                    padding-bottom: 140px;
+                    ">
+            <h5 class="card-title text-center">Appliance Status</h5>
+            <center>
+              <div id="predict_applances" style="
+                     padding-top: 94px;
+                 "></div>
+            </center>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">Battery Status</h5>
+            <center>
+              <iframe style= "border-radius: 25px;" width="450" height="260" style="border: 1px solid #cccccc;"
+                src="https://thingspeak.com/channels/2374933/charts/1?bgcolor=%23ffffff&color=%23d62027&dynamic=true&results=60&type=line"></iframe>>
+            </center>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">Battery Status</h5>
+            <center>
+              <iframe style= "border-radius: 25px;" width="450" height="260" style="border: 1px solid #cccccc;"
+                src="https://thingspeak.com/channels/2374933/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>>
+            </center>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">Smart Plug Live Current</h5>
+            <center>
+              <iframe style= "border-radius: 25px;" width="450" height="260" style="border: 1px solid #cccccc;"
+                src="https://thingspeak.com/channels/2382629/charts/1?bgcolor=%23ffffff&color=%23d62020&results=10"></iframe>>
+            </center>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">LOAD FACTOR</h5>
+            <center>
+              <iframe style= "border-radius: 25px;" width="450" height="260" style="border: 1px solid #cccccc;"
+                src="https://thingspeak.com/channels/2382657/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>>
+
+            </center>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">LOAD FACTOR</h5>
+            <center>
+              <iframe style= "border-radius: 25px;" width="450" height="260" style="border: 1px solid #cccccc;"
+              src="https://thingspeak.com/channels/2382657/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+
+            </center>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">Temperature and Humidity</h5>
+            <center>
+              <iframe style= "border-radius: 25px;" width="450" height="260" style="border: 1px solid #cccccc;"
+              src="https://thingspeak.com/channels/2380808/charts/1?bgcolor=%23ffffff&color=%23d62020&results=30"></iframe>
+
+            </center>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">Temperature and Humidity</h5>
+            <center>
+              <iframe style= "border-radius: 25px;" width="450" height="260" style="border: 1px solid #cccccc;"
+              src="https://thingspeak.com/channels/2380808/charts/2?bgcolor=%23ffffff&color=%23d62020&results=30"></iframe>
+
+            </center>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">Supply Voltage</h5>
+            <center>
+              <iframe style= "border-radius: 25px;" width="450" height="260" style="border: 1px solid #cccccc;"
+                src="https://thingspeak.com/channels/2002516/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+            </center>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">Load Power</h5>
+            <center>
+              <iframe style= "border-radius: 25px;" width="450" height="260" style="border: 1px solid #cccccc;"
+                src="https://thingspeak.com/channels/2002516/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+            </center>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">Flat Plate Collector</h5>
+            <center>
+              <iframe style= "border-radius: 25px;" width="450" height="260" style="border: 1px solid #cccccc;"
+                src="https://thingspeak.com/channels/1506615/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+            </center>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">Evacuated tube Collector</h5>
+            <center>
+              <iframe style= "border-radius: 25px;" width="450" height="260" style="border: 1px solid #cccccc;"
+                src="https://thingspeak.com/channels/1747418/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line"></iframe>
+            </center>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="card">
+          <div class="tomorrow" data-location-id="121010" data-language="EN" data-unit-system="METRIC" data-skin="dark"
+            data-widget-type="aqiPollen" style="padding-bottom:22px;position:relative;">
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">Room Temperature</h5>
+            <center>
+              <iframe style= "border-radius: 25px;" width="450" height="260" style="border: 1px solid #cccccc;"
+                src="https://thingspeak.com/channels/1953136/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <div class="card">
+          <div class="card-body">
+            <center>
+              <h5 class="card-title">Appliance 1</h5>
+            </center>
+            <div class="row">
+              <div class="col-6">
+                <center>
+                  <h5>Current</h5>
+                  <!-- <script>setInterval("/call", 1000);</script> -->
+                  <h6 id="current1">0</h6>
+                </center>
+              </div>
+              <div class="col-6">
+                <center>
+                  <h5>Power</h5>
+                  <h6 id="power1">0</h6>
+                </center>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="card">
+          <div class="card-body">
+            <center>
+              <h5 class="card-title">Appliance 2</h5>
+            </center>
+            <div class="row">
+              <div class="col-6">
+                <center>
+                  <h5>Current</h5>
+                  <h6 id="current2">0</h6>
+                </center>
+              </div>
+              <div class="col-6">
+                <center>
+                  <h5>Power</h5>
+                  <h6 id="power2">0</h6>
+                </center>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="card">
+          <div class="card-body">
+            <center>
+              <h5 class="card-title">Appliance 3</h5>
+            </center>
+            <div class="row">
+              <div class="col-6">
+                <center>
+                  <h5>Current</h5>
+                  <h6 id="current3">0</h6>
+                </center>
+              </div>
+              <div class="col-6">
+                <center>
+                  <h5>Power</h5>
+                  <h6 id="power3">0</h6>
+                </center>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="card">
+          <div class="card-body">
+            <center>
+              <h5 class="card-title">Appliance 4</h5>
+            </center>
+            <div class="row">
+              <div class="col-6">
+                <center>
+                  <h5>Current</h5>
+                  <h6 id="current4">0</h6>
+                </center>
+              </div>
+              <div class="col-6">
+                <center>
+                  <h5>Power</h5>
+                  <h6 id="power4">0</h6>
+                </center>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+  </div>
+
+
+  </div>
+  <script>
+    $(document).ready(function () {
+      $('#form').submit(function (event) {
+        event.preventDefault();
+        var form_data = $(this).serialize();
+        $.ajax({
+          url: '/set_time',
+          type: 'POST',
+          data: form_data,
+          dataType: 'json',
+          success: function (response) {
+            console.log(response);
+            callRoute(response.time_unix);
+          }
+        });
+      });
+      $('#duration').on('input', function () {
+        $('#duration-value').text(this.value);
+        setTimeout($('#duration-value').value(),);
+      });
+    });
+
+    function callRoute(time_unix) {
+      $.ajax({
+        url: '/call_route',
+        type: 'POST',
+        data: { 'time_unix': time_unix },
+        dataType: 'json',
+        success: function (response) {
+          console.log(response);
+        }
+      });
+      function callRoute1() {
+        $.ajax({
+          url: '/call_route1',
+          type: 'POST',
+          data: { 'time_unix': time_unix },
+          dataType: 'json',
+          success: function (response) {
+            console.log(response);
+          }
+        });
+      }
+    }
+
+  </script>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-4">
+      </div>
+
+      <div>
+        <h1>Shedule Load</h1>
+        <form id="form">
+          <label for="time">Set Time:</label>
+          <input type="datetime-local" id="time" name="time">
+          <label for="cars">Choose a Load:</label>
+          <select name="load" id="cars">
+            <option value="Water Pump">Water Pump</option>
+            <option value="Washing Machine">Washing Machine</option>
+            <option value="solar geyser">solar geyser</option>
+            <option value="Exhaust Fan">Exhaust Fan</option>
+            <option value="Air purifier">Air purifier</option>
+            <option value="EV chrger">EV chrger</option>
+            <option value="Custom Load">Custom Load</option>
+          </select>
+          <label for="duration">Set Duration (in seconds):</label>
+          <input type="range" id="duration" name="duration" min="1" max="600" value="30"><br>
+          <span id="duration-value">30</span> minutes<br>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+      <div class="col-4">
+      </div>
+
+    </div>
+  </div>
+  <script>
+    function predict_app() {
+
+
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function () {
+
+        document.getElementById("predict_applances").innerHTML = this.responseText;
+        setInterval(predict_app(), 2000);
+
+      }
+      xhttp.open("GET", "http://127.0.0.1:8100/getapp");
+      xhttp.send();
+
+    }
+  </script>
+  <!-- <script>
+      function pp(){
+        var start = document.getElementById("st").value;
+        console.log("Hi "+start);
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+          console.log(this.responseText);
+          alert("Your load will start at given time");
+        }
+        xhttp.open("GET", "https://iotgane.000webhostapp.com/time.php?time="+start);
+        xhttp.send();
+      }
+      function getRandomInt(min, max) {
+        return Math.round((Math.random() * (max - min) + min)*100)/100; //The maximum is exclusive and the minimum is inclusive
+      }
+      function loadDoc1() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+          document.getElementById("power1").innerHTML =
+          getRandomInt(4,5)+" Watt";
+          document.getElementById("current1").innerHTML =
+          getRandomInt(0.1,0.3)+" Amp";
+        }
+        xhttp.open("GET", "https://iotgane.000webhostapp.com/app_01_json.php");
+        xhttp.send();
+      }
+      function loadDoc2() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+          document.getElementById("power2").innerHTML =
+          "0 Watt";
+          document.getElementById("current2").innerHTML =
+          "0 Amp";
+
+        }
+        xhttp.open("GET", "https://iotgane.000webhostapp.com/app_02_json.php");
+        xhttp.send();
+      }
+      function loadDoc3() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+          document.getElementById("power3").innerHTML =
+          "0 Watt";
+          document.getElementById("current3").innerHTML =
+          "0 Amp";
+        }
+        xhttp.open("GET", "https://iotgane.000webhostapp.com/app_03_json.php");
+        xhttp.send();
+      }
+      function loadDoc4() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+          document.getElementById("power4").innerHTML =
+          0+" Watt";
+          document.getElementById("current4").innerHTML =
+          0+" Amp";
+        }
+        xhttp.open("GET", "https://iotgane.000webhostapp.com/app_04_json.php");
+        xhttp.send();
+      }
+      
+      setInterval(loadDoc1, 2000);
+      setInterval(loadDoc2, 2000);
+      setInterval(loadDoc3, 2000);
+      setInterval(loadDoc4, 2000);
+      
+      </script> -->
+
+  <script>
+    (function (d, s, id) {
+      if (d.getElementById(id)) {
+        if (window.__TOMORROW__) {
+          window.__TOMORROW__.renderWidget();
+        }
+        return;
+      }
+      const fjs = d.getElementsByTagName(s)[0];
+      const js = d.createElement(s);
+      js.id = id;
+      js.src = "https://www.tomorrow.io/v1/widget/sdk/sdk.bundle.min.js";
+
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'tomorrow-sdk');
+
+  </script>
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

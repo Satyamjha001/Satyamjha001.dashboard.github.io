@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "/styles/input.css">
+    <link rel="stylesheet" href="/styles/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+        <title>Enlighten</title>
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/root.css') }}"> -->
+    <link rel="shortcut icon" href="../static/img/img/SuryabalaLogo.jpg" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .containerNav{
+          box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+      }
+    </style>
+</head>
+<body>
+
+    <nav class="containerNav">
+        <header class="text-gray-600 body-font">
+            <div class="container mx-auto flex flex-wrap p-2 flex-col md:flex-row items-center">
+                <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                    <a href="/">
+                        <img src="/static/img/img/SuryabalaLogo.jpg" alt="" class="headerLogo" width="45rem">
+                    </a>
+                    <a class="ml-3 text-xl font-bold">Net Zero Hybrid AC-DC microgrid</a>
+                </a>
+                <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                    <a class="mr-5 hover:text-green-300 text-green-400  cursor-pointer font-semibold"
+                        href="/">Home</a>
+                    <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold" href="/html/new_building.html">New Building</a>
+                    <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold"
+                        href="/html/dashboard.html">Building Analytics</a>
+                    <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold" href="/html/energy calculator.html">Energy
+                        Calculator</a>
+                        <a class="mr-5 hover:text-gray-600 text-gray-900  cursor-pointer font-semibold" href="/html/Insights.html">Insights</a>
+                    </nav>
+            </div>
+        </header>
+    </nav>
+    <main class="main-panel">
+        <h1>Find your electrical load</h1>
+        <p>Adjust the values in the fields below to create a building design, then calculate the estimated energy efficiency!</p>
+        
+        <div class="input-container">
+            <div class="form-container">
+                <form action="/input" method="post" class="form">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input">
+                                <label for="relative-compactness">Relative Compactness</label>
+                                <!-- <input step="any" type="number" id="relative-compactness" name="relative-compactness"> -->
+                                <div class="range">
+                                    <div class="sliderValue">
+                                        <span>100</span>
+                                    </div>
+                                    <div class="field">
+                                        <div class="value left">
+                                            60%
+                                        </div>
+                                        <input id="range" type="range" min="60" max="99" value="0" steps="1" name="relative-compactness">
+                                        <div class="value right">
+                                            99%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input">
+                                <label for="width">Width (feet)</label>
+                                <input step="any" type="number" id="width" name="width" min="0" value="15">
+                            </div>
+                            <div class="input">
+                                <label for="length">Length (feet)</label>
+                                <input step="any" type="number" id="length" name="length" min="0" value="10">
+                            </div>
+                            <div class="input">
+                                <label for="distribution">Window Distributions</label>
+
+                                <select class="form-select" aria-label="distribution" id="distribution" name="distribution">
+                                    <option selected>Choose a distribution:</option>
+                                    <option value="0">Very Close</option>
+                                    <option value="1">Close</option>
+                                    <option value="2">Closer</option>
+                                    <option value="3">Far</option>
+                                    <option value="4">Farther</option>
+                                    <option value="5">Very Far</option>
+                                </select>
+                            </div>
+                        </div>
+                    <!-- <div class="input">
+                        <label for="roof-area">Roof Area(110 - 220)</label>
+                        <input step="any" type="number" id="roof-area" name="roof-area" min="110" max="220">
+                    </div> -->
+                        <div class="col">
+                            <div class="input">
+                                <label for="overall-height">Height of room(feet)</label>
+                                <input step="any" type="number" id="overall-height" name="overall-height"  value="11"required>
+                            </div>
+                            <div class="input">
+                                <label for="number-of-windows">no of Windows</label>
+                                <input step="any" type="number" id="number-of-windows" name="number-of-windows" value="1" required>
+                            </div>
+                            <div class="input">
+                                <label for="orientation">Orientation(House Facing)</label>
+
+                                <select class="form-select" aria-label="orientation" id="orientation" name="orientation" >
+                                    <option selected>Choose an orientation:</option>
+                                    <option value="2">North</option>
+                                    <option value="3">East</option>
+                                    <option value="4">South</option>
+                                    <option value="5">West</option>
+                                </select>
+                            </div>
+                            <input class="button"  type="submit" value="submit">
+                        </div>
+                    
+                    </div>
+
+
+                </form>
+
+            </div>
+                
+        </div>
+    </main>
+
+    
+
+    <form action="{{url_for('predict')}}" method="post" id="none" style="display:none;">
+        humidity<input class="h" type="text" id="hum" name="humid" value="0" placeholder="humidity label" ><br>
+        temputere<input class="h" type="text" id="temp" name="temp" value="0" placeholder="temputere label" ><br>
+        Carbon Conc.<input class="h1" type="text" id="cc" name="carbon" value="0" placeholder="carbon conc" ><br>
+        <button id="sum" type="submit">predict</button>
+    </form>
+
+    <script>
+        console.log("yy")
+        
+          var sendData = () => {
+            console.log("work");
+            function loadhum() {
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function() {
+                 console.log(JSON.parse(this.responseText).feeds[0].field2);
+                 if(JSON.parse(this.responseText).feeds[0].field2 == null || JSON.parse(this.responseText).feeds[0].field2=="nan"){
+                    document.getElementById("hum").value="70"
+                 }
+                 else{
+                    document.getElementById("hum").value=JSON.parse(this.responseText).feeds[0].field2
+                 }
+                }
+                xhttp.open("GET", "https://api.thingspeak.com/channels/1838230/fields/2.json?results=2");
+                xhttp.send();
+              }
+            function loadtemp() {
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function() {
+                 console.log(JSON.parse(this.responseText).feeds[0].field1);
+                 if(JSON.parse(this.responseText).feeds[0].field1 == null || JSON.parse(this.responseText).feeds[0].field1=="nan"){
+                    document.getElementById("temp").value="30"
+                 }
+                 else{
+                    document.getElementById("temp").value=JSON.parse(this.responseText).feeds[0].field1
+                 }
+                }
+                xhttp.open("GET", "https://api.thingspeak.com/channels/1838230/fields/1.json?results=2");
+                xhttp.send();
+              }
+            function loadcc() {
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function() {
+                 console.log(JSON.parse(this.responseText).feeds[0].field1);
+                 if(JSON.parse(this.responseText).feeds[0].field1 == null){
+                    document.getElementById("cc").value="300"
+                 }
+                 else{
+                    document.getElementById("cc").value=JSON.parse(this.responseText).feeds[0].field1
+                 }
+                }
+                xhttp.open("GET", "https://api.thingspeak.com/channels/1840292/feeds.json?results=2");
+                xhttp.send();
+              }
+              loadhum();
+              loadtemp();
+              loadcc();
+              function clicked(){
+                console.log(document.getElementById("hum").value);
+                document.getElementById("sum").click();
+              }
+              setTimeout(clicked, 2000);
+          }
+        const slideValue = document.querySelector("span");
+        const inputSlider = document.querySelector("#range");
+        inputSlider.oninput = (() => {
+            let value = inputSlider.value;
+            slideValue.textContent = value;
+            // slideValue.style.left = (value) + "%";
+            slideValue.classList.add("show");
+        });
+        inputSlider.onblur = (() => {
+            slideValue.classList.remove("show");
+        });
+    </script>
+    <footer>
+        <footer class="px-4 py-8 dark:bg-gray-800 dark:text-gray-400">
+            <div
+                class="container flex flex-wrap items-center justify-center mx-auto space-y-4 sm:justify-between sm:space-y-0">
+                <div class="flex flex-row pr-3 space-x-4 sm:space-x-8">
+                    <div
+                        class="flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-full dark:bg-green-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"
+                            class="w-5 h-5 rounded-full dark:text-gray-900">
+                            <path
+                                d="M18.266 26.068l7.839-7.854 4.469 4.479c1.859 1.859 1.859 4.875 0 6.734l-1.104 1.104c-1.859 1.865-4.875 1.865-6.734 0zM30.563 2.531l-1.109-1.104c-1.859-1.859-4.875-1.859-6.734 0l-6.719 6.734-6.734-6.734c-1.859-1.859-4.875-1.859-6.734 0l-1.104 1.104c-1.859 1.859-1.859 4.875 0 6.734l6.734 6.734-6.734 6.734c-1.859 1.859-1.859 4.875 0 6.734l1.104 1.104c1.859 1.859 4.875 1.859 6.734 0l21.307-21.307c1.859-1.859 1.859-4.875 0-6.734z">
+                            </path>
+                        </svg>
+                    </div>
+                    <ul class="flex flex-wrap items-center space-x-4 sm:space-x-8">
+                        <li>
+                            <a rel="noopener noreferrer" href="#">Terms of use</a>
+                        </li>
+                        <li>
+                            <a rel="noopener noreferrer" href="#">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="flex flex-wrap pl-3 space-x-4 sm:space-x-8">
+                    <li>
+                        <a rel="noopener noreferrer" href="#">Instagram</a>
+                    </li>
+                    <li>
+                        <a rel="noopener noreferrer" href="#">Facebook</a>
+                    </li>
+                    <li>
+                        <a rel="noopener noreferrer" href="#">Twitter</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </footer>
+</body>
+</html>
