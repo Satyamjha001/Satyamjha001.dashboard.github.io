@@ -1,0 +1,138 @@
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin: 0;
+    text-transform: capitalize !important;
+    scroll-behavior: smooth;
+}
+
+body{
+    background:rgba(248,249,250,1);
+    /* opacity: 1; */
+}
+.containerNav{
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+}
+
+.containerNav> a {
+    text-transform: capitalize;
+}
+
+.problemHeader{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    padding-bottom:1rem;
+    font-weight: bold;
+    font-size:2rem
+}
+
+.problemsubHeader{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    padding-bottom:0;
+    font-weight: bold;
+    font-size:1.5rem;
+    color:#616161
+}
+
+.TestimonialSection > p{
+    font-size:3rem !important
+}
+
+.cardParent{
+    display: grid;
+    flex-direction: column;
+    grid-template-columns: 40% 40%;
+    justify-content: center;
+    column-gap: 5%;
+    height: 100%;
+    margin-top: 2rem;
+}
+
+.col-6{
+          padding:1rem;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+                            }
+.col-6:hover{
+    border-color: #d3d5df;
+    /* box-shadow: 0 4px 7px 0 rgba(218,220,230,.6);  */
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;}
+
+.cardsContainer{
+margin-bottom: 1rem;
+    }
+.cardsContainer > * {
+    cursor: pointer;
+    border:"none !important";
+}
+
+
+.cardsContainer .col-6{
+    /* background-color: rgba(17,24,39,1) */
+}
+
+footer{
+    /* margin-top: 1rem; */
+}
+
+.swicthConter{
+    display: grid;
+    padding: 2rem 1rem;
+    grid-template-columns: 20% 20% 20% 20%;
+    justify-content: center;
+    column-gap: 5%;
+}
+
+.swicthConter h1{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size:2rem
+}
+.swicthConter h2{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size:1.5rem
+}
+.swicthConter h3{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size:1rem
+}
+.swicthConter > .card{
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    /* display: flex */
+    border-radius: 0.3rem;
+}
+
+.swicthConter .cardBody{
+    display: flex;
+    justify-content:center;
+    padding: 1rem;
+    z-index: 999;
+}
+.buttonToggle{
+    color:grey
+}
+
+.cardBodyLower{
+    display: flex;
+    justify-content:center;
+align-items: center;
+}
+
+.cardBodyLower > div{
+    align-items: center;
+}
+
+.headerLogo{
+    mix-blend-mode: multiply !important;
+    width: 5vw;
+    /* height: 3rem; */
+    /* background-color: aqua; */
+    object-fit: cover
+}
